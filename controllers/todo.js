@@ -1,6 +1,8 @@
 const Todo = require("../models/todo");
 
 exports.createTodo=(req,res)=>{
+    console.log("create");
+    console.log(req.body);
     const todo = new Todo(req.body);
     todo.save((err, task) => {
         if (err || !task) {
@@ -44,22 +46,24 @@ exports.GetTodo = (req, res) => {
 
 exports.updateTodo = (req, res) => {
     const todo = req.todo;
-
     todo.task = req.body.task;
+    console.log(todo.task);
 
     todo.save((err, task) => {
+        console.log(task);
         if (err || !task) {
             return res
                 .status(400)
                 .json({ error: "something went wrong while updating" });
         }
         res.json({ task });
+        console.log("Todo edited successfully!");
     });
 };
 
 exports.DeleteTodo = (req, res) => {
+    console.log("delete");
     const todo = req.todo;
-
     todo.remove((err, task) => {
         if (err || !task) {
             return res
@@ -69,5 +73,6 @@ exports.DeleteTodo = (req, res) => {
         res.json({
             message: "Todo deleted successfully!",
         });
+        console.log("Todo deleted successfully!");
     });
 };

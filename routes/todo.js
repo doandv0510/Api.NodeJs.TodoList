@@ -20,8 +20,8 @@ router.post(strLink + "Create", createTodo);
 
 router.get(strLink + "GetById/:todoId", GetTodo); 
 
-router.put("/todo/:todoId/update", updateTodo);
+router.post("/todo/update/:todoId", updateTodo);
 
-router.delete("/todo/delete/:todoId", DeleteTodo); 
+router.post("/todo/delete/:todoId", DeleteTodo); 
 
 module.exports = router;
