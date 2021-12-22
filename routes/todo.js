@@ -1,5 +1,15 @@
 const express = require('express');
+const { mongo} = require("mongoose"); 
 const router = express.Router();
-const {getAllTodos} = require('../controllers/Todo') 
-router.get("/todos/", getAllTodos); 
+
+const {
+    getAllTodos, 
+    createTodo
+} = require('../controllers/todo'); 
+
+const strLink = "/Todo/";
+router.get(strLink , getAllTodos); 
+
+router.post(strLink + "Create", createTodo); 
+
 module.exports = router;
