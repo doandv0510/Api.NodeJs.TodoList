@@ -1,0 +1,191 @@
+﻿<Window x:Class="TodoApps.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TodoApps"
+        mc:Ignorable="d"
+        Title="MainWindow" 
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanResize"
+        Height="570" Width="800">
+    <Window.Resources>
+        <Style TargetType="Path" x:Key="pathTrashCan">
+            <Setter Property="Fill" Value="#FF33AE"/>
+            <Setter Property="Stretch" Value="Uniform"/>
+            <Setter Property="Data" Value="M436 60h-75V45c0-24.813-20.187-45-45-45H196c-24.813 0-45 20.187-45 45v15H76c-24.813 0-45 20.187-45 45 c0 19.928 13.025 36.861 31.005 42.761L88.76 470.736C90.687 493.875 110.385 512 133.604 512h244.792 c23.22 0 42.918-18.125 44.846-41.271l26.753-322.969C467.975 141.861 481 124.928 481 105C481 80.187 460.813 60 436 60z M181 45 c0-8.271 6.729-15 15-15h120c8.271 0 15 6.729 15 15v15H181V45z M393.344 468.246c-0.643 7.712-7.208 13.754-14.948 13.754 H133.604c-7.739 0-14.305-6.042-14.946-13.747L92.294 150h327.412L393.344 468.246z M436 120H76c-8.271 0-15-6.729-15-15 s6.729-15 15-15h360c8.271 0 15 6.729 15 15S444.271 120 436 120z"/>
+        </Style>
+        <Style TargetType="Path" x:Key="pathEdit">
+            <Setter Property="Fill" Value="#FF33AE"/>
+            <Setter Property="Stretch" Value="Uniform"/>
+            <Setter Property="Data" Value="M417.968 311.916l-54.717-57.099c10.139-10.127 68.775-68.697 80.725-80.634c1.352-1.35 2.432-2.945 3.184-4.7 c8.76-20.442 62.773-146.471 63.589-148.374c5.316-12.403-7.271-24.998-19.68-19.68c-1.46 0.625-130.587 55.966-148.373 63.589 c-1.75 0.749-3.341 1.827-4.687 3.172l-80.693 80.603L199.911 93.85c5-22.62-2.079-44.195-20.789-62.905    C147.729-0.445 99.736-8.685 59.699 10.442c-9.33 4.456-11.441 16.819-4.138 24.123l38.774 38.774 c5.858 5.858 5.858 15.338 0 21.196c-5.844 5.843-15.353 5.844-21.196 0L34.365 55.761c-7.312-7.312-19.67-5.181-24.122 4.138 C-8.884 99.937-0.644 147.929 30.747 179.32c18.834 18.834 40.572 25.883 63.354 20.687l57.166 54.713    c-2.293 2.291-124.946 124.807-129.3 129.156c-29.289 29.288-29.291 76.691 0 105.981c29.281 29.282 76.686 29.297 105.975 0.006 l129.264-129.121l54.608 56.986c-5.192 22.782 1.857 44.516 20.689 63.348c31.331 31.331 79.306 39.667 119.422 20.504 c9.328-4.456 11.443-16.818 4.138-24.123l-38.775-38.774c-5.858-5.858-5.858-15.338 0-21.196c5.844-5.843 15.353-5.844 21.197 0 l38.774 38.774c7.314 7.312 19.668 5.183 24.123-4.138c19.128-40.039 10.887-88.031-20.505-119.421 C462.168 313.992 440.59 306.913 417.968 311.916z M468.437 43.74l-14.302 33.37c-6.974-5.39-13.251-11.541-19.068-19.069 L468.437 43.74z M357.152 91.433l49.66-21.282c9.475 13.826 21.369 25.725 35.214 35.214l-21.279 49.651l-1.411 1.409 c-29.637-10.571-53.021-33.959-63.587-63.59L357.152 91.433z M108.553 172.345c-4.142-3.964-10.18-5.218-15.558-3.231 c-15.181 5.609-27.842 2.219-41.052-10.99c-16.95-16.95-24.452-40.675-21.206-63.598l21.206 21.206 c17.531 17.531 46.057 17.531 63.588 0c17.574-17.574 17.575-46.014 0-63.589L94.325 30.937 c22.926-3.247 46.649 4.256 63.598 21.206c13.21 13.21 16.6 25.871 10.991 41.052c-2.069 5.6-0.617 11.894 3.696 16.022 l63.49 60.766l-21.222 21.198l-57.214-54.507c-5.993-5.71-15.481-5.48-21.19 0.514s-5.48 15.481 0.514 21.19l56.677 53.995 l-21.183 21.159L108.553 172.345z M106.751 468.662c-17.573 17.572-46.014 17.574-63.588 0    c-17.566-17.566-17.581-46.008-0.006-63.583l10.609-10.599l63.589 63.589L106.751 468.662z M138.564 436.884l-63.589-63.589 l21.208-21.185l63.588 63.589L138.564 436.884z M180.98 394.516l-63.588-63.589l215.456-215.216 c12.913 27.005 34.83 49.842 63.578 63.599L180.98 394.516z M480.888 417.498l-21.206-21.206 c-17.573-17.573-46.015-17.574-63.589 0c-17.575 17.575-17.574 46.015 0 63.589l21.206 21.206 c-22.92 3.247-46.649-4.256-63.598-21.206c-13.209-13.21-16.599-25.871-10.991-41.052c1.987-5.38 0.73-11.423-3.237-15.564 l-61.052-63.711l21.172-21.148l50.23 52.805c5.705 5.999 15.194 6.233 21.189 0.53c5.998-5.705 6.235-15.192 0.53-21.19 l-50.734-53.335l21.232-21.208l60.576 63.213c4.129 4.308 10.418 5.757 16.015 3.689c15.182-5.609 27.842-2.218 41.052 10.99 C476.632 370.85 484.134 394.575 480.888 417.498z"/>
+        </Style>
+    </Window.Resources>
+    <Grid Width="800">
+        <Grid 
+                Background="#FF33AE"
+                Height="90" Width="800"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top">
+        </Grid>
+        <Border
+                Background="White"
+                CornerRadius="7"
+                Height="80" Width="500"
+                Margin="0 50 0 0"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top">
+            <Border.BitmapEffect>
+                <DropShadowBitmapEffect Color="Gray" Direction="320" Softness="1" ShadowDepth="6" Opacity="0.8" />
+            </Border.BitmapEffect>
+            <StackPanel>
+                <Label Height="30" FontSize="18" Margin="15 0">New Todo:</Label>
+                <Grid Height="50">
+                    <Grid 
+                        Width="480"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+                        <TextBox
+                            x:Name="txtTaskTodo"
+                                Width="360" Height="35"
+                                Margin="20 0 0 0"
+                                FontSize="20" Foreground="Black"
+                                BorderBrush="#EDEDED"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                            VerticalContentAlignment="Center"/>
+                        <Button
+                            x:Name="btnAddNew"
+                                Content="Add"
+                            FontSize="20"
+                            FontWeight="Bold"
+                                Foreground="White"
+                                Margin="0 0 20 0"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
+                            Click="btnAddNew_Click">
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="Button">
+                                                <Border
+                                                        x:Name="borderMenuItem"
+                                                        BorderBrush="Transparent"
+                                                        Width="65" Height="34"
+                                                        Background="#FF33AE"
+                                                        CornerRadius="2">
+                                                    <ContentPresenter
+                                                            HorizontalAlignment="Center"
+                                                            VerticalAlignment="Center"/>
+                                                </Border>
+                                                <ControlTemplate.Triggers>
+                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                        <Setter TargetName="borderMenuItem" Property="Background" Value="#4C000000"/>
+                                                    </Trigger>
+                                                </ControlTemplate.Triggers>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </Button.Style>
+                        </Button>
+                    </Grid>
+                </Grid>
+            </StackPanel>
+        </Border>
+        <Border
+            Height="350" Width="510"
+            BorderBrush="#e7e7e7"
+            BorderThickness="1"
+            Margin="0 0 0 40"
+            VerticalAlignment="Bottom"
+            HorizontalAlignment="Center">
+            <StackPanel>
+                <Border
+                    BorderBrush="#e7e7e7"
+                    BorderThickness="1"
+                    Height="50"
+                    VerticalAlignment="Top">
+                    <Grid>
+                        <Label 
+                            Content="Edit" 
+                            FontSize="16" Foreground="#464646"
+                            Margin="10 0 0 0" 
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"></Label>
+                        <TextBox
+                            x:Name="txtTastEdit"
+                            Width="390" Height="30" 
+                            FontSize="16"
+                            BorderBrush="#e7e7e7"
+                            Margin="0 0 20 0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            VerticalContentAlignment="Center"/>
+                        <Button
+                            x:Name="btnSave"
+                            Content="Save" FontSize="16"
+                            Margin="0 0 10 0"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            Click="btnSave_Click">
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="Button">
+                                                <Border
+                                                    x:Name="borderMenuItem"
+                                                    Width="50" Height="30"
+                                                    BorderBrush="#FF33AE"
+                                                    BorderThickness="1.5"
+                                                    CornerRadius="2">
+                                                    <ContentPresenter
+                                                        HorizontalAlignment="Center"
+                                                        VerticalAlignment="Center"/>
+                                                </Border>
+                                                <ControlTemplate.Triggers>
+                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                        <Setter TargetName="borderMenuItem" Property="Background" Value="wheat"/>
+                                                    </Trigger>
+                                                </ControlTemplate.Triggers>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </Button.Style>
+                        </Button>
+                    </Grid>
+                </Border>
+                <ScrollViewer 
+                    Name="ScrollViewer1"
+                    VerticalScrollBarVisibility="Auto" 
+                    HorizontalScrollBarVisibility="Auto" CanContentScroll="True">
+                    <StackPanel 
+                    x:Name="stpTodoList"
+                    Height="300" Width="470"
+                    VerticalAlignment="Bottom"
+                    HorizontalAlignment="Center"
+                    CanVerticallyScroll="True"
+                    CanHorizontallyScroll="False">
+                        <StackPanel.Resources>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="FontSize" Value="17"/>
+                                <Setter Property="FontWeight" Value="Bold"/>
+                                <Setter Property="VerticalAlignment" Value="Center"/>
+                            </Style>
+                            <Style TargetType="CheckBox">
+                                <Setter Property="VerticalAlignment" Value="Center"/>
+                            </Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="Transparent"/>
+                            </Style>
+                        </StackPanel.Resources>
+                    </StackPanel>
+                </ScrollViewer>
+            </StackPanel>
+        </Border>
+        
+    </Grid>
+</Window>
